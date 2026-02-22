@@ -1,0 +1,91 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    text-align: center;
+    border-radius: 2em;
+    padding: 2vw;
+    font-size:2.5em;
+    margin-top:10%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur();
+}
+
+body[data-theme="default"] {
+    background: linear-gradient(to right, #ff00ff, #39ff);
+}
+
+:is(h1, h2, h3, h4, h5, h6)[data-theme="default"] {
+    background: linear-gradient(to left, #ff00ff, #39ff);
+    background-clip:text;
+    color: transparent;
+    -webkit-text-stroke: 0.025em darkblue;
+}
+
+.btnGrid {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    margin-top: 2vh;
+    gap:5vw;
+}
+
+.itemGrid {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: fit-content;
+    grid-template-rows: 10vh;
+    margin-top: 2vh;
+    gap:2vw;
+    border-radius:20px;
+    background:rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+    text-align: center;
+    border-radius: 2em;
+    padding-inline: 3vw;
+    padding-block: 1.5vh;
+    transition: transform 0.3s ease-in-out;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.btn[data-theme="default"] {
+    background: linear-gradient(to left, #ff00ff, #3399ff);
+    border:2px solid darkblue;
+    color:blue;
+    -webkit-text-stroke: 1px darkblue;
+}
+
+.btn[data-buttonType="grid"]:first-child {
+    grid-column: auto;
+}
+
+.btn:hover {
+    transform:scale(1.1);
+}
+
+.txt {
+    text-align: center;
+    border-radius: 20px;
+    padding-inline: 3vw;
+    padding-block: 1.5vh;
+    transition: transform 0.3s ease-in-out;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-size: 0.5em;
+    cursor:text;
+}
+
+.txt[data-theme="default"] {
+    background: linear-gradient(to left, #ff00ff, #3399ff);
+    border:2px solid darkblue;
+    color:blue;
+    -webkit-text-stroke: 1px darkblue;
+}
