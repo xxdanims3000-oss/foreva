@@ -12,6 +12,11 @@ function saveTaskGroup() {
     localStorage.setItem("taskGroups", JSON.stringify(taskGroups));
 }
 
+function removeTaskGroup(index) {
+    taskGroups.splice(index, 1);
+    saveTaskGroup();
+}
+
 function renderTaskGroup() {
     groupHolder.innerHTML = ``;
     taskGroups.forEach((group, index) => {
@@ -23,7 +28,20 @@ function renderTaskGroup() {
         groupButton.onclick = function() {
             openNewTab(group);
         };
-        groupHolder.appendChild(groupButton);
+        const delBtn = document.createElement("button");
+        delBtn.className = "btn taskBtn";
+        delBtn.setAttribute("data-theme", "default");
+        delBtn.setAttribute("data-buttonType", "grid");
+        delBtn.textContent = "X";
+        delBtn.onclick = function() {
+            removeTaskGroup(index);
+            renderTaskGroup();
+        };
+        const wrapper = document.createElement("div");
+        wrapper.className = "itemGrid";
+        wrapper.appendChild(delBtn);
+        wrapper.appendChild(groupButton);
+        groupHolder.appendChild(wrapper);
     })
     saveTaskGroup();
 }
