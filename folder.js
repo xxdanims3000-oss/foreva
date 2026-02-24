@@ -11,6 +11,8 @@ const holder = document.getElementById("taskHolderF");
 const inBar = document.getElementById("inBarF");
 const subBtn = document.getElementById("inBtnF");
 
+const close = document.getElementById("closeFolders");
+
 title = titleMin.toString() + parent.toString();
 
 let taskStorage = JSON.parse(localStorage.getItem(title)) || [];
@@ -73,6 +75,10 @@ document.addEventListener("keypress", (key) => {
     if (key.key === "Enter") {
         makeTask();
     }
+})
+
+close.addEventListener("click", function() {
+    window.close();
 })
 
 setup();

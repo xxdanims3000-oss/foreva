@@ -11,6 +11,8 @@ const catBar = document.getElementById("inBarCat");
 const catBtn = document.getElementById("inBtnCat");
 const catHolder = document.getElementById("catHolder");
 
+const close = document.getElementById("closeTasks");
+
 let taskStorage = JSON.parse(localStorage.getItem(title)) || [];
 
 let folderStorage = JSON.parse(localStorage.getItem(title + "Cat")) || [];
@@ -132,6 +134,10 @@ document.addEventListener("keypress", (key) => {
 
 catBtn.addEventListener("click", function() {
     makeFolder();
+})
+
+close.addEventListener("click", function() {
+    window.close();
 })
 
 setup();
